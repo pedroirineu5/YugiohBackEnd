@@ -53,7 +53,6 @@ class Rarity(models.TextChoices):
 
 
 class Card(models.Model):
-    """Carta de Yu-Gi-Oh! Campos de monstro ficam vazios para Spell/Trap."""
 
     name = models.CharField("nome", max_length=200)
     card_type = models.CharField("tipo de carta", max_length=32, choices=CardType.choices)
