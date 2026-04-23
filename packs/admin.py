@@ -1,7 +1,10 @@
 from django.contrib import admin
 
-from packs.models import Packs
+from packs.models import Pack
 
-@admin.register(Packs)
-class PacksAdmin(admin.ModelAdmin):
-    list_display = ('package_name', 'url_photo', 'price')
+
+@admin.register(Pack)
+class PackAdmin(admin.ModelAdmin):
+    list_display = ("name", "cover_url", "price")
+    filter_horizontal = ("cards",)
+    search_fields = ("name", "description")

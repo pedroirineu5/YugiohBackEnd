@@ -1,9 +1,9 @@
 from rest_framework import serializers
 
-from cards.models import Card
+from packs.models import Pack
 
-class PacksSerializers(serializers.ModelSerializer):
 
+class PackSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Card
+        model = Pack
         fields = "__all__"

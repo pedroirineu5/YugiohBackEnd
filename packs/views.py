@@ -1,14 +1,14 @@
-from django.shortcuts import render
-
 from rest_framework import generics
 
-from packs.serializers import PacksSerializers
-from packs.models import Packs
+from packs.models import Pack
+from packs.serializers import PackSerializer
+
 
 class PacksCreateListView(generics.ListCreateAPIView):
-    queryset = Packs.objects.all()
-    serializer_class = PacksSerializers
+    queryset = Pack.objects.all()
+    serializer_class = PackSerializer
+
 
 class PacksRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Packs.objects.all()
-    serializer_class = PacksSerializers
+    queryset = Pack.objects.all()
+    serializer_class = PackSerializer
