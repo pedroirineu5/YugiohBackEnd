@@ -1,7 +1,6 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-
-
+from constants import MonsterAttribute, MonsterType, CardType, Rarity
 
 class Card(models.Model):
 
@@ -47,11 +46,6 @@ class Card(models.Model):
     )
 
     card_image = models.ImageField("imagem", upload_to="cards/", blank=True, null=True)
-
-    class Meta:
-        ordering = ["name"]
-        verbose_name = "carta"
-        verbose_name_plural = "cartas"
 
     def __str__(self):
         return self.name
