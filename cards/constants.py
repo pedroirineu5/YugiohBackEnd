@@ -1,9 +1,8 @@
-from django import models
 
 ## TODO fix the constants for the choice models fields
 
 
-class CardType(models.TextChoices):
+class CardType(object):
     NORMAL_MONSTER = "normal_monster", "Normal Monster"
     EFFECT_MONSTER = "effect_monster", "Effect Monster"
     FUSION_MONSTER = "fusion_monster", "Fusion Monster"
@@ -11,7 +10,7 @@ class CardType(models.TextChoices):
     SPELL = "spell", "Spell"
     TRAP = "trap", "Trap"
 
-class MonsterAttribute(models.TextChoices):
+class MonsterAttribute(object):
     LIGHT = "light", "LIGHT"
     DARK = "dark", "DARK"
     EARTH = "earth", "EARTH"
@@ -20,7 +19,7 @@ class MonsterAttribute(models.TextChoices):
     WIND = "wind", "WIND"
     DIVINE = "divine", "DIVINE"
 
-class MonsterType(models.TextChoices):
+class MonsterType(object):
     AQUA = "aqua", "Aqua"
     BEAST = "beast", "Beast"
     BEAST_WARRIOR = "beast_warrior", "Beast-Warrior"
@@ -46,7 +45,7 @@ class MonsterType(models.TextChoices):
     CYBERSE = "cyberse", "Cyberse"
     WYRM = "wyrm", "Wyrm"
 
-class Rarity(models.TextChoices):
+class Rarity(object):
     COMMON = "common", "Common"
     RARE = "rare", "Rare"
     SUPER_RARE = "super_rare", "Super Rare"

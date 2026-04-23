@@ -1,6 +1,6 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-from constants import MonsterAttribute, MonsterType, CardType, Rarity
+from cards.constants import MonsterAttribute, MonsterType, CardType, Rarity
 
 class Card(models.Model):
 
