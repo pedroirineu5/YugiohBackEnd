@@ -5,11 +5,11 @@ from cards.constants import MonsterAttribute, MonsterType, CardType, Rarity
 class Card(models.Model):
 
     name = models.CharField("nome", max_length=200)
-    card_type = models.CharField("tipo de carta", max_length=32, choices=CardType)
+    card_type = models.CharField("tipo de carta", max_length=32, choices=CardType.choices)
     attribute = models.CharField(
         "atributo",
         max_length=16,
-        choices=MonsterAttribute.choices,
+        choices=MonsterAttribute,
         blank=True,
     )
     monster_type = models.CharField(

@@ -1,0 +1,415 @@
+{
+  "info": {
+    "name": "YugiohBackEnd API",
+    "_postman_id": "6b8c5f1b-47fb-4c3f-9f3e-0e5b2b3f6a4b",
+    "description": "Collection gerada a partir das rotas em core/urls.py + cards/urls.py + packs/urls.py.\n\nObservação importante: no seu core/urls.py, os includes estão em path('api/v1', include(...)) (sem barra no final). Isso faz os endpoints ficarem como /api/v1card/ e /api/v1packs/ (sem a barra entre v1 e o recurso). Esta collection usa exatamente esses paths.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Cards",
+      "item": [
+        {
+          "name": "List cards",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1card/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1card",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create card (JSON)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Blue-Eyes White Dragon\",\n  \"card_type\": \"normal_monster\",\n  \"attribute\": \"light\",\n  \"monster_type\": \"dragon\",\n  \"description\": \"Legendary dragon...\",\n  \"attack\": 3000,\n  \"defense\": 2500,\n  \"level\": 8,\n  \"rarity\": \"ultra_rare\",\n  \"card_image\": null\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1card/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1card",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get card by id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1card/{{cardId}}/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1card",
+                "{{cardId}}",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "cardId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update card (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Blue-Eyes White Dragon\",\n  \"card_type\": \"normal_monster\",\n  \"attribute\": \"light\",\n  \"monster_type\": \"dragon\",\n  \"description\": \"Updated description\",\n  \"attack\": 3000,\n  \"defense\": 2500,\n  \"level\": 8,\n  \"rarity\": \"secret_rare\",\n  \"card_image\": null\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1card/{{cardId}}/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1card",
+                "{{cardId}}",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "cardId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Partial update card (PATCH)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rarity\": \"super_rare\"\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1card/{{cardId}}/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1card",
+                "{{cardId}}",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "cardId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete card",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1card/{{cardId}}/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1card",
+                "{{cardId}}",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "cardId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Packs",
+      "item": [
+        {
+          "name": "List packs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1packs/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1packs",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create pack (JSON)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Legendary Pack\",\n  \"cards\": [1, 2],\n  \"cover_url\": \"https://example.com/pack-cover.png\",\n  \"price\": 250,\n  \"description\": \"Pacote com cartas clássicas.\",\n  \"unlock_requirements\": \"Complete o tutorial\"\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1packs/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1packs",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get pack by id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1packs/{{packId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1packs",
+                "{{packId}}"
+              ],
+              "variable": [
+                {
+                  "key": "packId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update pack (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Legendary Pack\",\n  \"cards\": [1],\n  \"cover_url\": \"https://example.com/pack-cover.png\",\n  \"price\": 300,\n  \"description\": \"Descrição atualizada\",\n  \"unlock_requirements\": \"Vença 5 duelos\"\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1packs/{{packId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1packs",
+                "{{packId}}"
+              ],
+              "variable": [
+                {
+                  "key": "packId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Partial update pack (PATCH)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 199\n}\n"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1packs/{{packId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1packs",
+                "{{packId}}"
+              ],
+              "variable": [
+                {
+                  "key": "packId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete pack",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1packs/{{packId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1packs",
+                "{{packId}}"
+              ],
+              "variable": [
+                {
+                  "key": "packId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
+
