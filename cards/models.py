@@ -5,7 +5,7 @@ from cards.constants import MonsterAttribute, MonsterType, CardType, Rarity
 class Card(models.Model):
 
     name = models.CharField("nome", max_length=200)
-    card_type = models.CharField("tipo de carta", max_length=32, choices=CardType.choices)
+    card_type = models.CharField("tipo de carta", max_length=32, choices=CardType)
     attribute = models.CharField(
         "atributo",
         max_length=16,
